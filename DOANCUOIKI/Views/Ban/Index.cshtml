@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DOANCUOIKI.Models.Ban>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SoBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SLNguoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoBan)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SLNguoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.SoBan">Edit</a> |
+                <a asp-action="Display" asp-route-id="@item.SoBan">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SoBan">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

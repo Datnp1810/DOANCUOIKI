@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DOANCUOIKI.Models.Ban>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=device-width,inital-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HTML -->
+    <div class="ban-list">
+        @foreach (var item in Model)
+        {
+            <div class="ban-card">
+                <button class="button-ban @(item.status == 1 ? "customer-button" : "")" onclick="toggleOrderButtons(this, @(item.status))" value="@item.SoBan">Bàn @Html.DisplayFor(modelItem => item.SoBan)</button>
+            </div>
+        }
+    </div>
+
+    <div class="oder" id="orderButton" style="display: none;">
+        <button class="button-oder" id="order">Order</button>
+    </div>
+
+    <div class="view-oder" id="viewOrderButton" style="display: none;">
+        <button class="button-oder" id="viewOrder">View order</button>
+    </div>
+
+    <script>
+        function toggleOrderButtons(button, status) {
+            var orderButton = document.getElementById('order');
+            var viewOrderButton = document.getElementById('viewOrderButton');
+
+            if (status === 1) {
+                orderButton.style.display = 'none';
+                viewOrderButton.style.display = 'block';
+            } 
+            else {
+                orderButton.addEventListener("click", function () {
+                    window.location.href = "/MonAn/Order?SoBan=" + button.value;
+                });
+                orderButton.parentElement.style.display = 'block';
+                //orderButton.setAttribute("value", `${button.value}`);
+                
+                viewOrderButton.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

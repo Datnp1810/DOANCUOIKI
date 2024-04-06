@@ -1,0 +1,55 @@
+﻿@model DOANCUOIKI.Models.MonAn
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update</h1>
+
+<h4>MonAn</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaMon" />
+            <div class="form-group">
+                <label asp-for="LoaiThucPhamId" class="control-label"></label>
+                <select asp-for="LoaiThucPhamId" class="form-control" asp-items="ViewBag.LoaiThucPhamId"></select>
+                <span asp-validation-for="LoaiThucPhamId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenMon" class="control-label"></label>
+                <input asp-for="TenMon" class="form-control" />
+                <span asp-validation-for="TenMon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DVT" class="control-label"></label>
+                <input asp-for="DVT" class="form-control" />
+                <span asp-validation-for="DVT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gia" class="control-label"></label>
+                <input asp-for="Gia" class="form-control" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

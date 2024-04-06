@@ -1,0 +1,65 @@
+﻿@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Order bàn số: @Model.SoBan</h1>
+
+<div class=" row">
+    @foreach (var item in Model.ListMonAn)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @item.MaMon
+                </div>
+                <div class=" panel-body">
+                    <p>
+                        <img src="/@item.Images" alt="Alternate Text" />
+                      </p>
+                    <p>
+                        <strong>Loại: </strong>@item.LoaiThucPham.TenLoaiTP
+                    </p>
+                    <p>
+                        <strong>Tên Món: </strong>@item.TenMon
+                    </p>             
+                </div>
+                <div class="panel panel-footer clearfix">
+                    <div class="pull-right">
+                        <p>
+                            <strong>Số lượng: </strong>
+                            >
+                            <button class="btn btn-xs btn-primary" onclick="decreaseQuantity('@item.MaMon')">-</button>
+                            <span id="quantity_@item.MaMon">0</span> <!-- Hiển thị số lượng mặc định -->
+                            <button class="btn btn-xs btn-primary" onclick="increaseQuantity('@item.MaMon')">+</button>
+                        </p>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+    </tbody>
+</table>
+
+<script>
+    function increaseQuantity(maMon) 
+    {
+        var quantityElement = document.getElementById('quantity_' + maMon);
+        var currentQuantity = parseInt(quantityElement.innerHTML);
+        quantityElement.innerHTML = currentQuantity + 1;
+    }
+
+    function decreaseQuantity(maMon) {
+        var quantityElement = document.getElementById('quantity_' + maMon);
+        var currentQuantity = parseInt(quantityElement.innerHTML);
+        if (currentQuantity >= 1) {
+            quantityElement.innerHTML = currentQuantity - 1;
+        }
+    }
+</script>

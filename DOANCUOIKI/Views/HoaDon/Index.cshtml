@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DOANCUOIKI.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayVao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayRa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdThanhToan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHD)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayVao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayRa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdThanhToan)
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.MaHD">Edit</a> |
+                <a asp-action="Display" asp-route-id="@item.MaHD">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaHD">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,128 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.container-fluid {
+    background-color: #0dc52a;
+    color: #f2f2f2;
+    padding: 20px;
+    margin-right: 10px; /* Thêm margin bên ph?i ?? cách bi?t v?i sidebar */
+    border-right: 1px solid #fff; /* Thêm d?u g?ch gi?a container và sidebar */
+}
+
+.ban-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    padding: 20px;
+    grid-column: 1;
+}
+
+.ban-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.button-ban {
+    background-color: aquamarine;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    .button-ban.customer-button {
+        background-color: red; /* Màu ?? */
+    }
+
+.oder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.view-oder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+}
+
+.button-oder {
+    background-color: burlywood;
+    padding: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+
+.sidebar-quanli {
+    position: fixed;
+    left: 0px;
+    top: 99px;
+    width: 250px;
+    height: 100%;
+    background-color: #0dc52a;
+    color: #000000;
+    padding-top: 20px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .sidebar-nav li {
+        margin-bottom: 10px;
+    }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .sidebar-nav li a:hover {
+                background-color: #555;
+            }
